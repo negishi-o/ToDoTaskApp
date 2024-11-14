@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ToDOタスク管理_ログイン</title>
+</head>
+<body>
+	<div class="login-form">
+		<form method="post" th:action="@{login/auth}" th:object="${loginForm}">
+			<label for="authority">ユーザーID:</label>
+			<p th:if="${#fields.hasErrors('authority')}" th:errors="*{authority}"></p>
+			<input id="authority" type="text" name="authority" th:value="*{authority}">
+			<label for="password">Password:</label>
+			<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+			<input id="password" type="password" name="password" th:value="*{password}">
+			<input type="submit" value="送信">
+		</form>
+	</div>
+	<div class="login-list-area">
+		<div>
+			<div>
+				<a href="/login/register">新規登録</a>
+			</div>
+			<div>
+				<a href="/login/reissue"></a>再発行
+			</div>
+		</div>
+	</div>
+</body>
+</html>

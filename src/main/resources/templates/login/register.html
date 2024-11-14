@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ToDOタスク管理_ユーザー新規登録</title>
+</head>
+<body>
+<contents>
+	<div class="login-register-form">
+		<form method="post" th:action="@{/form/registerAdd}" th:object="${UserForm}">
+		<label for="username">ユーザー名（表記用）</label>
+		<p th:if="${#fields.hasErrors{'username'}}" th:errors="*{username}"></p>
+		<input id="username" type="text" th:value="*{username}">
+		<label for="email">メールアドレス</label>
+		<p th:if="${#fields.hasErrors{'username'}}" th:errors="*{email}"></p>
+		<input id="email" type="email" th:value="*{email}">
+		<label for="authority">ユーザーID</label>
+		<p th:if="${#fields.hasErrors{'authority'}}" th:errors="*{authority}"></p>
+		<input id="authority" type="text" th:value="*{authority}" pattern="^[a-zA-Z0-9]+$">
+		<label for="password">Password</label>
+		<p th:if="${#fields.hasErrors{'password'}}" th:errors="*{password}"></p>
+		<input id="password" type="password" th:value="*{password}" pattern="^[a-zA-Z0-9]+$">
+		<input type="submit" value="送信">
+		</form>
+	</div>
+</contents>
+</body>
+</html>
